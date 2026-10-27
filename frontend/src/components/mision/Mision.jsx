@@ -1,5 +1,32 @@
 import { useEffect, useState } from 'react';
 import { Col, Row, UncontrolledAlert } from 'reactstrap';
+import {
+  actualizarUnidades,
+  agregarEquipo,
+  confirmarCarga,
+  eliminarEquipo,
+  obtenerCarga,
+  obtenerInventario,
+  reiniciarMision,
+} from '../../api/misionApi';
+import InfoMision from './InfoMision';
+import Catalogo from './Catalogo';
+import Bodega from './Bodega';
+import Temporizador from '../Temporizador';
+import FinDeJuego from '../FinDeJuego';
+
+function Mision() {
+  const [inventario, setInventario] = useState([]);
+  const [carga, setCarga] = useState({
+    creditos: 0,
+    itemsCargados: [],
+    total: 0,
+    disponibles: 0,
+    tiempoRestante: 0,
+  });
+  const [error, setError] = useState(null);
+  const [calculando, setCalculando] = useState(false);
+
 import { actualizarUnidades, agregarEquipo, eliminarEquipo, obtenerCarga, obtenerInventario } from '../../api/misionApi';
 import InfoMision from './InfoMision';
 import Catalogo from './Catalogo';
@@ -10,6 +37,7 @@ function Mision() {
   const [carga, setCarga] = useState({ creditos: 0, itemsCargados: [], total: 0, disponibles: 0, tiempoRestante: 0 });
   const [error, setError] = useState(null);
   const [calculando, setCalculando] = useState(false);
+>>>>>>> origin/develop
   const terminado = carga.confirmada || carga.expirada;
 
   function mostrarError(texto) {
@@ -33,6 +61,8 @@ function Mision() {
   async function ejecutar(accion) {
     setCalculando(true);
     setError(null);
+
+
     try {
       await accion();
     } catch (err) {
@@ -54,6 +84,21 @@ function Mision() {
   function desembarcar(id) {
     ejecutar(() => eliminarEquipo(id));
   }
+
+
+  function confirmar() {
+    ejecutar(() => confirmarCarga());
+  }
+
+  function reiniciar() {
+    ejecutar(() => reiniciarMision());
+  }
+
+  return (
+    0} alTerminar={cargarDatos}
+    {terminado && ( )}
+    {error && ( {error.texto} )}
+    Catálogo de la Base
 
   return (
     <div>

@@ -5,8 +5,13 @@ function Bodega({
   inventario,
   bloqueado,
   calculando,
+  confirmada,
   alCambiar,
   alDesembarcar,
+  alConfirmar,
+  alCambiar,
+  alDesembarcar,
+
 }) {
   const filas = itemsCargados.map((item) => {
     const equipo = inventario.find((e) => e.id === item.id);
@@ -14,6 +19,30 @@ function Bodega({
   });
 
   return (
+
+    Tu Bodega de Carga
+    {calculando && (
+      Calculando peso...
+    )}
+    {filas.length === 0 ? (
+      La bodega está vacía.
+    ) : (
+      {filas.map((fila) => (
+        {fila.nombre}
+        {fila.precio * fila.cantidad} Cr
+        alCambiar(fila.id, fila.cantidad - 1)}
+        >
+        -
+        {fila.cantidad}
+        alCambiar(fila.id, fila.cantidad + 1)}
+        >
+        +
+        onClick={() => alDesembarcar(fila.id)}
+        >
+        Desembarcar
+      ))}
+    )}
+    {confirmada ? 'Equipo confirmado' : 'Confirmar equipo'}
     <Card>
       <CardBody>
         <CardTitle tag="h5">Tu Bodega de Carga</CardTitle>

@@ -1,3 +1,11 @@
+import { Container, Navbar, NavbarBrand } from 'reactstrap';
+import Reactor from './components/Reactor';
+
+function App() {
+  return (
+    <>
+      Evaluación II · Programación Web
+=======
 import { useState } from 'react';
 import { Container, Nav, NavItem, NavLink, Navbar, NavbarBrand } from 'reactstrap';
 import Reactor from './components/Reactor';
