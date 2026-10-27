@@ -27,6 +27,17 @@ function Mision() {
   const [error, setError] = useState(null);
   const [calculando, setCalculando] = useState(false);
 
+import { actualizarUnidades, agregarEquipo, eliminarEquipo, obtenerCarga, obtenerInventario } from '../../api/misionApi';
+import InfoMision from './InfoMision';
+import Catalogo from './Catalogo';
+import Bodega from './Bodega';
+
+function Mision() {
+  const [inventario, setInventario] = useState([]);
+  const [carga, setCarga] = useState({ creditos: 0, itemsCargados: [], total: 0, disponibles: 0, tiempoRestante: 0 });
+  const [error, setError] = useState(null);
+  const [calculando, setCalculando] = useState(false);
+>>>>>>> origin/develop
   const terminado = carga.confirmada || carga.expirada;
 
   function mostrarError(texto) {
@@ -51,6 +62,7 @@ function Mision() {
     setCalculando(true);
     setError(null);
 
+
     try {
       await accion();
     } catch (err) {
@@ -73,6 +85,7 @@ function Mision() {
     ejecutar(() => eliminarEquipo(id));
   }
 
+
   function confirmar() {
     ejecutar(() => confirmarCarga());
   }
@@ -86,6 +99,37 @@ function Mision() {
     {terminado && ( )}
     {error && ( {error.texto} )}
     Catálogo de la Base
+
+  return (
+    <div>
+      {error && (
+        <UncontrolledAlert color="warning" key={error.id} fade={false}>
+          {error.texto}
+        </UncontrolledAlert>
+      )}
+      <InfoMision creditos={carga.creditos} disponibles={carga.disponibles} total={carga.total} />
+      <Row>
+        <Col lg="8">
+          <h4 className="mb-3">Catálogo de la Base</h4>
+          <Catalogo
+            inventario={inventario}
+            bloqueado={terminado}
+            calculando={calculando}
+            alAgregar={agregarALaNave}
+          />
+        </Col>
+        <Col lg="4">
+          <Bodega
+            itemsCargados={carga.itemsCargados}
+            inventario={inventario}
+            bloqueado={terminado}
+            calculando={calculando}
+            alCambiar={cambiarUnidades}
+            alDesembarcar={desembarcar}
+          />
+        </Col>
+      </Row>
+    </div>
   );
 }
 
