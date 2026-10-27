@@ -1,0 +1,198 @@
+:root {
+  --morado: #a58bd9;
+  --morado-oscuro: #6b54a3;
+  --morado-claro: #efe8fb;
+  --rosa: #f4a6c6;
+  --rosa-fuerte: #d6578a;
+  --rosa-claro: #ffe6f0;
+  --texto: #43345f;
+}
+
+body {
+  background: linear-gradient(160deg, #f3ecff 0%, #fff0f6 100%) fixed;
+  color: var(--texto);
+  font-family: 'Karla', 'Segoe UI', Arial, sans-serif;
+  font-size: 1.05rem;
+}
+
+h3, h4, h5, .card-title, .navbar-brand {
+  font-family: 'Playfair Display', Georgia, serif;
+  color: var(--morado-oscuro);
+  font-weight: 700;
+}
+
+.barra {
+  background: linear-gradient(90deg, var(--morado), var(--rosa));
+}
+
+.barra .navbar-brand {
+  color: #fff;
+  font-size: 1.3rem;
+}
+
+.nav-pills .nav-link {
+  color: var(--morado-oscuro);
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+.nav-pills .nav-link.active {
+  background-color: var(--morado);
+  color: #fff;
+}
+
+.card {
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(130, 100, 190, 0.18);
+}
+
+.card.mb-3 {
+  height: calc(100% - 1rem);
+  transition: transform 0.2s;
+}
+
+.card.mb-3:hover {
+  transform: translateY(-3px);
+}
+
+.list-group-item {
+  background: transparent;
+  border-color: var(--morado-claro);
+}
+
+.form-control {
+  border-radius: 4px;
+  border-color: var(--morado);
+}
+
+.form-control:focus {
+  border-color: var(--morado-oscuro);
+  box-shadow: 0 0 0 0.2rem rgba(165, 139, 217, 0.3);
+}
+
+.btn {
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--morado);
+  --bs-btn-border-color: var(--morado);
+  --bs-btn-hover-bg: var(--morado-oscuro);
+  --bs-btn-hover-border-color: var(--morado-oscuro);
+  --bs-btn-active-bg: var(--morado-oscuro);
+  --bs-btn-active-border-color: var(--morado-oscuro);
+  --bs-btn-disabled-bg: var(--morado);
+  --bs-btn-disabled-border-color: var(--morado);
+}
+
+.btn-success {
+  --bs-btn-color: #5b2a45;
+  --bs-btn-bg: var(--rosa);
+  --bs-btn-border-color: var(--rosa);
+  --bs-btn-hover-color: #5b2a45;
+  --bs-btn-hover-bg: #ee8db6;
+  --bs-btn-hover-border-color: #ee8db6;
+  --bs-btn-active-color: #5b2a45;
+  --bs-btn-active-bg: #ee8db6;
+  --bs-btn-active-border-color: #ee8db6;
+  --bs-btn-disabled-color: #5b2a45;
+  --bs-btn-disabled-bg: var(--rosa);
+  --bs-btn-disabled-border-color: var(--rosa);
+}
+
+.btn-secondary {
+  --bs-btn-bg: #d9d2e9;
+  --bs-btn-border-color: #d9d2e9;
+  --bs-btn-color: #6f6488;
+  --bs-btn-disabled-bg: #d9d2e9;
+  --bs-btn-disabled-border-color: #d9d2e9;
+  --bs-btn-disabled-color: #6f6488;
+}
+
+.btn-outline-secondary {
+  --bs-btn-color: var(--morado-oscuro);
+  --bs-btn-border-color: var(--morado);
+  --bs-btn-hover-bg: var(--morado);
+  --bs-btn-hover-border-color: var(--morado);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-active-bg: var(--morado-oscuro);
+  --bs-btn-active-border-color: var(--morado-oscuro);
+  --bs-btn-disabled-color: var(--morado-oscuro);
+  --bs-btn-disabled-border-color: var(--morado);
+}
+
+.btn-outline-danger {
+  --bs-btn-color: var(--rosa-fuerte);
+  --bs-btn-border-color: var(--rosa-fuerte);
+  --bs-btn-hover-bg: var(--rosa-fuerte);
+  --bs-btn-hover-border-color: var(--rosa-fuerte);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-active-bg: var(--rosa-fuerte);
+  --bs-btn-active-border-color: var(--rosa-fuerte);
+  --bs-btn-disabled-color: var(--rosa-fuerte);
+  --bs-btn-disabled-border-color: var(--rosa-fuerte);
+}
+
+.alert {
+  border: none;
+  border-radius: 6px;
+}
+
+.alert-info {
+  --bs-alert-bg: var(--morado-claro);
+  --bs-alert-color: var(--morado-oscuro);
+}
+
+.alert-warning {
+  --bs-alert-bg: var(--rosa-claro);
+  --bs-alert-color: #8a3560;
+}
+
+.alert-success {
+  --bs-alert-bg: #e4d9fb;
+  --bs-alert-color: #4f3a8a;
+}
+
+.alert-danger {
+  --bs-alert-bg: #ffd3e3;
+  --bs-alert-color: #9b1f4f;
+}
+
+.fin-juego {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.badge {
+  border-radius: 4px !important;
+}
+
+.badge.bg-primary {
+  background-color: var(--morado) !important;
+}
+
+.badge.bg-dark {
+  background-color: var(--morado-oscuro) !important;
+}
+
+.badge.bg-success {
+  background-color: var(--rosa) !important;
+  color: #5b2a45;
+}
+
+.badge.bg-warning {
+  background-color: var(--morado-claro) !important;
+  color: var(--morado-oscuro);
+}
+
+.badge.bg-danger {
+  background-color: var(--rosa-fuerte) !important;
+}
+
+.temporizador {
+  text-align: right;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
