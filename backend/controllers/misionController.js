@@ -28,10 +28,21 @@ function eliminar(req, res) {
   res.json(servicio.eliminarEquipo(id));
 }
 
+function confirmar(req, res) {
+  res.json(servicio.confirmarCarga());
+}
+
+function reiniciar(req, res) {
+  servicio.reiniciarMision();
+  res.json(servicio.obtenerCarga());
+}
+
 module.exports = {
   listarInventario,
   verCarga,
   agregar,
   actualizar,
   eliminar,
+  confirmar,
+  reiniciar,
 };
