@@ -1,4 +1,4 @@
-st servicio = require('../services/misionService');
+const servicio = require('../services/misionService');
 function listarInventario(req, res) {
 res.json(servicio.obtenerInventario());
 }
