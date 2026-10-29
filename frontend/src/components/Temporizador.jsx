@@ -18,19 +18,21 @@ function Temporizador({ segundos, activo, alTerminar }) {
     if (!activo) {
       return;
     }
-
     if (restante <= 0) {
       alTerminar();
       return;
     }
-
     const temporizador = setTimeout(() => setRestante(restante - 1), 1000);
     return () => clearTimeout(temporizador);
   }, [restante, activo]);
 
   return (
-    Tiempo de la misión:{' '}
-    {formatear(restante)}
+    <div className="temporizador">
+      Tiempo de la misión:{' '}
+      <Badge pill color={restante <= 30 ? 'danger' : 'primary'}>
+        {formatear(restante)}
+      </Badge>
+    </div>
   );
 }
 

@@ -1,5 +1,6 @@
 const express = require('express');
 const reactorRoutes = require('./routes/reactorRoutes');
+const misionRoutes = require('./routes/misionRoutes');
 
 const app = express();
 
@@ -10,6 +11,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/', reactorRoutes);
+app.use('/api', misionRoutes);
 
 app.use((req, res) => {
   res.status(404).json({ error: 'Ruta no encontrada' });

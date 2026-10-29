@@ -9,9 +9,6 @@ function Bodega({
   alCambiar,
   alDesembarcar,
   alConfirmar,
-  alCambiar,
-  alDesembarcar,
-
 }) {
   const filas = itemsCargados.map((item) => {
     const equipo = inventario.find((e) => e.id === item.id);
@@ -19,38 +16,16 @@ function Bodega({
   });
 
   return (
-
-    Tu Bodega de Carga
-    {calculando && (
-      Calculando peso...
-    )}
-    {filas.length === 0 ? (
-      La bodega está vacía.
-    ) : (
-      {filas.map((fila) => (
-        {fila.nombre}
-        {fila.precio * fila.cantidad} Cr
-        alCambiar(fila.id, fila.cantidad - 1)}
-        >
-        -
-        {fila.cantidad}
-        alCambiar(fila.id, fila.cantidad + 1)}
-        >
-        +
-        onClick={() => alDesembarcar(fila.id)}
-        >
-        Desembarcar
-      ))}
-    )}
-    {confirmada ? 'Equipo confirmado' : 'Confirmar equipo'}
     <Card>
       <CardBody>
         <CardTitle tag="h5">Tu Bodega de Carga</CardTitle>
+
         {calculando && (
           <div className="mb-2">
             <Spinner size="sm" /> Calculando peso...
           </div>
         )}
+
         {filas.length === 0 ? (
           <p>La bodega está vacía.</p>
         ) : (
@@ -95,6 +70,15 @@ function Bodega({
             ))}
           </ListGroup>
         )}
+
+        <Button
+          color="success"
+          className="w-100"
+          disabled={bloqueado || calculando || filas.length === 0}
+          onClick={alConfirmar}
+        >
+          {confirmada ? 'Equipo confirmado' : 'Confirmar equipo'}
+        </Button>
       </CardBody>
     </Card>
   );
